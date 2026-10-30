@@ -1,0 +1,7 @@
+<!-- Supabase → Authentication → Email Templates → "Confirm signup"
+     Subject: დაადასტურე ელფოსტა — NEXTGEN
+     token_hash links work on any device/browser (the default {{ .ConfirmationURL }} requires the same browser). -->
+<h2>კეთილი იყოს შენი მობრძანება NEXTGEN-ში!</h2>
+<p>რეგისტრაციის დასასრულებლად დაადასტურე ელფოსტა:</p>
+<p><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=signup&next=/dashboard">ელფოსტის დადასტურება</a></p>
+<p>თუ შენ არ დარეგისტრირებულხარ, უგულებელყავი ეს წერილი.</p>
