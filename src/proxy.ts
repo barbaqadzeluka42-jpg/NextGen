@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { publicKey } from "@/lib/env";
 
 const PROTECTED = ["/dashboard", "/admin"];
 
@@ -11,7 +12,7 @@ const PROTECTED = ["/dashboard", "/admin"];
  */
 export async function proxy(request: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const key = publicKey();
   if (!url || !key) return NextResponse.next();
 
   let response = NextResponse.next({ request });

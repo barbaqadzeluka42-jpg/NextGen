@@ -1,5 +1,6 @@
 import "server-only";
 import { createClient } from "@supabase/supabase-js";
+import { secretKey } from "@/lib/env";
 
 /**
  * Service-role client: BYPASSES RLS. Server only; used exclusively for
@@ -9,9 +10,9 @@ import { createClient } from "@supabase/supabase-js";
  */
 export function createAdminClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) throw new Error("SUPABASE_SERVICE_ROLE_KEY is not configured (server-side only).");
+  const key = secretKey();
+  if (!url || !key) throw new Error("SUPABASE_SECRET_KEY is not configured (server-side only).");
   return createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
 }
 
-export const hasServiceRole = () => Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY && process.env.NEXT_PUBLIC_SUPABASE_URL);
+export const hasServiceRole = () => Boolean(secretKey() && process.env.NEXT_PUBLIC_SUPABASE_URL);

@@ -10,8 +10,8 @@
    (ან CLI-ით: `npx supabase link --project-ref <ref>` და `npx supabase db push`.)
 3. **API გასაღებები:** Project Settings → API (ან „API Keys“):
    - `Project URL` → `NEXT_PUBLIC_SUPABASE_URL`
-   - `anon` / publishable key → `NEXT_PUBLIC_SUPABASE_ANON_KEY` (უსაფრთხოა ბრაუზერისთვის, RLS იცავს)
-   - `service_role` key → `SUPABASE_SERVICE_ROLE_KEY` (**საიდუმლოა**; მხოლოდ Vercel-ის Environment Variables-ში, არასდროს `NEXT_PUBLIC_`-ით)
+   - Publishable key (`sb_publishable_…`) → `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (უსაფრთხოა ბრაუზერისთვის, RLS იცავს)
+   - Secret key (`sb_secret_…`) → `SUPABASE_SECRET_KEY` (**საიდუმლოა**; მხოლოდ Vercel-ის Environment Variables-ში, არასდროს `NEXT_PUBLIC_`-ით)
 4. **Authentication → URL Configuration:**
    - *Site URL:* `https://შენი-დომენი` (ან Vercel-ის URL)
    - *Redirect URLs:* `https://შენი-დომენი/auth/confirm`, `http://localhost:3000/auth/confirm`
@@ -38,8 +38,8 @@
    | სახელი | მნიშვნელობა |
    | --- | --- |
    | `NEXT_PUBLIC_SUPABASE_URL` | Supabase Project URL |
-   | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | anon/publishable key |
-   | `SUPABASE_SERVICE_ROLE_KEY` | service_role key |
+   | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Publishable key |
+   | `SUPABASE_SECRET_KEY` | Secret key |
    | `NEXT_PUBLIC_SITE_URL` | `https://შენი-დომენი` |
    | `NEXT_PUBLIC_CONTACT_EMAIL` | საკონტაქტო ელფოსტა (footer/privacy), არასავალდებულო |
    | `NEXT_PUBLIC_ORG_NAME` | ორგანიზაციის/სკოლის სახელი privacy გვერდისთვის, არასავალდებულო |
